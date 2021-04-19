@@ -1,0 +1,44 @@
+.card {
+  border: 1px solid black;
+  display: block;
+  flex-direction: column;
+  position: absolute;
+  background-color: rgb(254, 253, 246);
+  border-radius: 15px;
+  padding: 5px;
+  margin: 5px !important;
+  box-shadow: 0 0 10px black;
+}
+
+.card span {
+  text-align: center;
+}
+
+.card-img {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.card-img img {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  padding-bottom: 10px;
+}
+
+.card-skills {
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+}
+
+.card-skills div {
+  line-height: 15px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+}
+
+.card-bio {
+  font-size: 10px;
+}
