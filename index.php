@@ -12,16 +12,28 @@ if (!function_exists('add_action')) {
 }
 
 // Setup
-define('USERS_DATA_PLUGIN_URL', __FILE__);
+define('SUPERHEROES_PLUGIN_URL', __FILE__);
 
 
  // Includes
 include('includes/activate.php');
 include('includes/admin-page.php');
 include('includes/shortcodes/creator.php');
+include('includes/enqueue.php');
+include('includes/ajax.php');
 
 // Hooks
 register_activation_hook( __FILE__, 'sh_activate_plugin' );
 add_action( 'admin_menu', 'add_admin_page' );
+add_action('wp_enqueue_scripts', 'superhero_files');
+add_action('admin_enqueue_scripts', 'superhero_admin_scripts');
+add_action( 'wp_ajax_store_sh_data', 'store_sh_data' );
 add_shortcode( 'superhero', 'superhero_card_shortcode' );
-
+add_action('wp_head','miplugin_ajaxurl');
+function miplugin_ajaxurl() {
+?>
+<script type="text/javascript">
+var ajaxurl = '<?php echo admin_url('admin-ajax.php'); ?>';
+</script>
+<?php
+}
